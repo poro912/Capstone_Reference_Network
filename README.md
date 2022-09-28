@@ -16,22 +16,22 @@
 담당자 : 편성윤 </br>
 [Capstone_Reference](https://github.com/PyunSungYun/Capstone_Reference)  </br>
 
-## Capstone_Reference_
+## Capstone_Reference_Client_UI
 Client_UI <br>
 담당자 : 이종수 </br>
 [Capstone_Reference_Client_UI](https://github.com/ycs-201807062/Capstone_Reference_Client_UI)</br>
 
-## Capstone_Reference_
+## Capstone_Reference_Client_module
 Client_Module   </br>
 담당자 : 유영주  </br>
 [Capstone_Reference_Client_module](https://github.com/ycs-202007051/Capstone_Reference_Client_module)</br>
 
-## Capstone_Reference_
+## Capstone_Reference_Server_UI
 Server_UI </br>
 담당자 : 장진 </br>
 [Capstone_Reference_Server_UI](https://github.com/ycs-202007064/Capstone_Reference_Server_UI)</br>
 
-## Capstone_Reference_
+## Capstone_Reference_Server_module
 Server_Module <br>
 담당자 : 이태양 </br>
 [Capstone_Reference_Server_module](https://github.com/ycs-201807027/Capstone_Reference_Server_module)</br>
