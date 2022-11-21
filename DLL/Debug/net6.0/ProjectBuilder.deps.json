@@ -1,0 +1,64 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "ProjectBuilder/1.0.0": {
+        "dependencies": {
+          "ClientToServer": "1.0.0",
+          "NetworkLibrary": "1.0.0",
+          "ServerToClient": "1.0.0"
+        },
+        "runtime": {
+          "ProjectBuilder.dll": {}
+        }
+      },
+      "ClientToServer/1.0.0": {
+        "dependencies": {
+          "NetworkLibrary": "1.0.0"
+        },
+        "runtime": {
+          "ClientToServer.dll": {}
+        }
+      },
+      "NetworkLibrary/1.0.0": {
+        "runtime": {
+          "NetworkLibrary.dll": {}
+        }
+      },
+      "ServerToClient/1.0.0": {
+        "dependencies": {
+          "NetworkLibrary": "1.0.0"
+        },
+        "runtime": {
+          "ServerToClient.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ProjectBuilder/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ClientToServer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NetworkLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ServerToClient/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

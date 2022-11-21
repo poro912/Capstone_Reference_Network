@@ -399,4 +399,18 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 
+!DLL/
+!DLL/*
+!DLL/*.*
+!DLL/*/*.*
+!DLL/*.dll
+!DLL/[Dd]ebug/
+!DLL/[Dd]ebug/*
+!DLL/[Dd]ebug/*.dll
+!DLL/[Dd]ebug/net6.0/*.dll
+!DLL/[Rr]elease/
+!DLL/[Rr]elease/*
+!DLL/[Rr]elease/*.dll
+!DLL/[Rr]elease/net6.0/*.dll
+
 # End of https://www.toptal.com/developers/gitignore/api/csharp

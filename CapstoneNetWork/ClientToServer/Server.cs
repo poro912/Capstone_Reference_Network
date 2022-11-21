@@ -17,19 +17,17 @@ namespace ClientToServer
 
 		// 서버의 stream 저장
 		private NetworkStream? stream;
+		public static string? setAddress = null;
 		public readonly string address;
 		public readonly int port;
 
-		// 싱글톤 구현
 		static private Server? instance;
 		static public Server Instance
 		{
 			get
 			{
-				if (instance == null)
-				{
-					instance = new Server();
-				}
+				// instance == null 이라면
+				instance ??= new Server();
 				return instance;
 			}
 		}
@@ -40,7 +38,12 @@ namespace ClientToServer
 			)
 		{
 			Console.WriteLine("Connect 객체 생성");
-			this.address = address;
+			// Address 설정
+			if (null != setAddress)
+				this.address = setAddress;
+			else
+				this.address = address;
+
 			this.port = port;
 			Console.WriteLine("Default Address : " + this.address);
 

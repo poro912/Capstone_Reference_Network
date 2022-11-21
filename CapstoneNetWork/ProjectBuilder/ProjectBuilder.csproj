@@ -1,14 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <BaseOutputPath>D:\programming\Capstone\Capstone_Reference_Network\DLL</BaseOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ClientToServer\ClientToServer.csproj" />
     <ProjectReference Include="..\NetworkLibrary\NetworkLibrary.csproj" />
+    <ProjectReference Include="..\ServerToClient\ServerToClient.csproj" />
   </ItemGroup>
 
 </Project>

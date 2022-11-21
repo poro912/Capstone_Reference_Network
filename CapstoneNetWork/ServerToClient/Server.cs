@@ -20,10 +20,8 @@ namespace ServerToClient
         {
             get
             {
-                if (instance == null)
-                {
-                    instance = new();
-                }
+				// instance == null 이라면
+				instance ??= new();
                 return instance;
             }
         }
