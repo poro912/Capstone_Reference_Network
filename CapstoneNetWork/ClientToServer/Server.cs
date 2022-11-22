@@ -37,7 +37,7 @@ namespace ClientToServer
 			int port = Default.Network.port
 			)
 		{
-			Console.WriteLine("Connect 객체 생성");
+			Console.WriteLine("CtoS\t: Connect 객체 생성");
 			// Address 설정
 			if (null != setAddress)
 				this.address = setAddress;
@@ -47,10 +47,10 @@ namespace ClientToServer
 			this.port = port;
 			Console.WriteLine("Default Address : " + this.address);
 
-			Console.WriteLine("데이터 삽입 완료");
+			Console.WriteLine("CtoS\t: 서버측 데이터 삽입 완료");
 			this.tcpclient = new();
 
-			Console.WriteLine("객체 생성 완료");
+			Console.WriteLine("CtoS\t: 객체 생성 완료");
 
 			// 송수신 시작
 			this.Start();
@@ -64,7 +64,7 @@ namespace ClientToServer
 		// 통신을 시작할 때 실행한다.
 		public void Start()
 		{
-			Console.Write("커넥트 실행 \t");
+			Console.Write("CtoS\t: 커넥트 실행 \t");
 			try
 			{
 				//this.tcpclient.Connect("127.0.0.1", 8090);

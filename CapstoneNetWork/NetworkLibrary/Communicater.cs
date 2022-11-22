@@ -43,16 +43,29 @@ namespace Protocol
 		public bool receiveRun { get { return ReceiveRun; } }
 
 		// 이벤트 발생기
-		private event DataReceived? Receive_event;
-		public event DataReceived ReceiveEvent
+		private event DataReceived? _receiveEvent;
+		public event DataReceived receiveEvent
 		{
 			add
 			{
-				Receive_event += value;
+				_receiveEvent += value;
 			}
 			remove	
 			{
-				Receive_event -= value;
+				_receiveEvent -= value;
+			}
+		}
+
+		private event DataReceived? _stopEvent;
+		public event DataReceived stopEvent
+		{
+			add
+			{
+				_stopEvent += value;
+			}
+			remove
+			{
+				_stopEvent -= value;
 			}
 		}
 
@@ -70,7 +83,7 @@ namespace Protocol
 
 		~Communicater()
 		{
-			Console.WriteLine("Communicater : 메모리에서 제거됨");
+			Console.WriteLine("Communicater\t: 메모리에서 제거됨");
 		}
 
 		public Communicater(NetworkStream stream)
@@ -152,7 +165,7 @@ namespace Protocol
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine("Communicater : 데이터 송신 중 문제 발생");
+				Console.WriteLine("Communicater\t: 데이터 송신 중 문제 발생");
 				Console.WriteLine(e.ToString());
 				throw;
 			}
@@ -172,20 +185,29 @@ namespace Protocol
 		// 수신 중지
 		public void StopReceive()
 		{
+			Console.WriteLine("Communicater\t: StopReceive");
 			this.ReceiveRun = false;
-			if(Receive_event != null)
-				Receive_event();
+			if(_receiveEvent != null)
+				_receiveEvent();
+			if (null != _stopEvent)
+				_stopEvent();
 		}
 		
 		// Receive.Data()
 		// 데이터를 읽어오기 시작한다.
 		private void ReceiveProcess()
 		{
-			Console.WriteLine("ReceiveProcess ");
+			Console.WriteLine("Communicater\t: ReceiveProcess");
 
 			// 실행 상태가 아니라면종료
 			if (!this.ReceiveRun)
+			{
+				Console.WriteLine("Communicater\t: not in running state");
+				if(null != _stopEvent)
+					_stopEvent();
+				
 				return;
+			}
 
 			// 스트림이 설정되어 있지 않다면 종료
 			if (this.stream == null)
@@ -216,12 +238,12 @@ namespace Protocol
 			}
 			catch (System.IO.IOException)
 			{
-				Console.WriteLine("서버와 연결이 끊어졌습니다.");
+				Console.WriteLine("Communicater\t: 서버와 연결이 끊어졌습니다.");
 				throw;
 			}
 			catch (Exception ex)
 			{
-				Console.Write("Receive 오류 발생 \t: ");
+				Console.Write("Communicater\t: Receive 오류 발생 \t: ");
 				Console.WriteLine(ex.ToString());
 				throw;
 			}
@@ -230,10 +252,10 @@ namespace Protocol
 		// 데이터 삽입
 		private void SaveDataEnQueue(IAsyncResult ar)
 		{
-			Console.WriteLine("데이터 들어옴");
-			Console.WriteLine("데이터 길이 : " + received_byte.Length);
+			Console.WriteLine("Communicater\t: 데이터 들어옴");
+			Console.WriteLine("Communicater\t: 데이터 길이 : " + received_byte.Length);
 			string receive_data = Encoding.Default.GetString(this.received_byte);
-			Console.WriteLine("내용 : " + receive_data);
+			Console.WriteLine("Communicater\t: 내용 : " + receive_data);
 
 			if (received_byte[0] == 0)
 			{
@@ -256,9 +278,9 @@ namespace Protocol
 
 			// 이벤트 호출
 			// 이벤트가 할당되어 있으며, 큐가 비어있지 않은 경우
-			if (Receive_event != null)
+			if (_receiveEvent != null)
 				if (!this.IsEmpty())
-					Receive_event();
+					_receiveEvent();
 		}
 
 		// get 이후 NULL값 확인을 해야함

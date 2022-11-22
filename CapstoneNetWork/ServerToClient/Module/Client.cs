@@ -33,6 +33,7 @@ namespace ServerToClient
 
         ~Client()
         {
+            Console.WriteLine("Communicater\t: 클라이언트 삭제됨");
             StopReceive();
         }
 

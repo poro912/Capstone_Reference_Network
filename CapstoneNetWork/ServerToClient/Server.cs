@@ -42,12 +42,12 @@ namespace ServerToClient
         private Server()
         {
             // 포트를 할당
-            Console.Write("포트 생성 \t\t");
+            Console.Write("StoC\t: 포트 생성 \t\t");
             sep = new();
             Console.WriteLine("성공");
 
             // Accept 스레드에 메소드 할당
-            Console.Write("Accept 스레드 생성 \t");
+            Console.Write("StoC\t: Accept 스레드 생성 \t");
             accept_thread = new Thread(() => AcceptRun());
             Console.WriteLine("성공");
 
@@ -76,7 +76,7 @@ namespace ServerToClient
         {
             // 동작을 false로 전환
             // 동작 마무리 이후 자동 종료
-            Console.WriteLine("스레드 종료 신호 발생");
+            Console.WriteLine("StoC\t: 스레드 종료 신호 발생");
             run = false;
             sep.Close();
         }
@@ -84,7 +84,7 @@ namespace ServerToClient
         // 외부로부터 통신 요청이 있다면 통신 요청을 받아 클라이언트 스레드로 만들어줌
         static private void AcceptRun()
         {
-            Console.WriteLine("Accept 스레드 실행\n");
+            Console.WriteLine("StoC\t: Accept 스레드 실행\n");
 
             // run 변수가 true 일동안 실행
             while (Instance.run)
@@ -99,7 +99,7 @@ namespace ServerToClient
 
                 Instance.Accept(client);
             }
-            Console.WriteLine("Accept 스레드 종료\n");
+            Console.WriteLine("StoC\t: Accept 스레드 종료\n");
             return;
         }
 
@@ -112,11 +112,11 @@ namespace ServerToClient
 
             // 접근한 클라이언트에 대해 Client 자료형으로 변환해 관리
             Client tempClient = new(client);
-            Console.Write("새로운 클라이언트 접근 : \t");
+            Console.Write("StoC\t: 새로운 클라이언트 접근 : \t");
 
             if (tempClient.socket.RemoteEndPoint == null)
             {
-                Console.WriteLine("리모트가 생성되지 않았습니다.");
+                Console.WriteLine("StoC\t: 리모트가 생성되지 않았습니다.");
                 return;
             }
 
@@ -124,13 +124,15 @@ namespace ServerToClient
             Console.Write(tempClient.socket.RemoteEndPoint.ToString());
             Console.WriteLine("\n");
 
+            // 델이게이트가 있다면
             // 델리게이트를 호출
-            if (Instance.clientAccept != null)
+            if (null != Instance.clientAccept)
             {
                 Instance.clientAccept(tempClient);
             }
             else
             {
+                // 델리게이트가 없다면
                 // 클라이언트 리스트에 추가
                 Instance.clients.Add(tempClient);
             }
