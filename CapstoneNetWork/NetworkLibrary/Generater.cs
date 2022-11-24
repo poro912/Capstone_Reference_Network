@@ -263,7 +263,7 @@ namespace Protocol
 			Generate(target, ref destination);
 			return destination;
 		}
-		/*
+		
 		// Message
 		static public void Generate(MessageProtocol.MESSAGE target, ref ByteList destination)
 		{
@@ -276,7 +276,7 @@ namespace Protocol
 			Generate(target, ref destination);
 			return destination;
 		}
-
+		/*
 		// Server
 		static public void Generate(ServerProtocol.Server target, ref ByteList destination)
 		{
