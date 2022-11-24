@@ -249,7 +249,7 @@ namespace Protocol
 			Generate(target, ref destination);
 			return destination;
 		}
-
+		*/
 		// 클래스 형
 		// User
 		static public void Generate(UserProtocol.USER target, ref ByteList destination)
@@ -263,7 +263,7 @@ namespace Protocol
 			Generate(target, ref destination);
 			return destination;
 		}
-
+		/*
 		// Message
 		static public void Generate(MessageProtocol.MESSAGE target, ref ByteList destination)
 		{

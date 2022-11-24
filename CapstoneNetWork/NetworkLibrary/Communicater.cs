@@ -238,14 +238,14 @@ namespace Protocol
 			}
 			catch (System.IO.IOException)
 			{
-				Console.WriteLine("Communicater\t: 서버와 연결이 끊어졌습니다.");
-				throw;
+				Console.WriteLine("Communicater\t: 연결이 끊어졌습니다.");
+				//throw;
 			}
 			catch (Exception ex)
 			{
 				Console.Write("Communicater\t: Receive 오류 발생 \t: ");
 				Console.WriteLine(ex.ToString());
-				throw;
+				//throw;
 			}
 		}
 

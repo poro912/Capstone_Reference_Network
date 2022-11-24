@@ -23,29 +23,29 @@ namespace Protocol
 				{DataType.BOOL          , ConvertBool },
 				{DataType.INTARRAY      , ConvertIntArray },
 				{DataType.DATETIME      , ConvertDateTime },
-				/*
+				
 				// 제어 타입
-				{DataType.LOGIN         , LoginProtocol.Convert},
-				{DataType.LOGOUT        , LogoutProtocol.Convert},
-				{DataType.ISCONNECT     , isConnectProtocol.Convert},
+				//{DataType.LOGIN         , LoginProtocol.Convert},
+				//{DataType.LOGOUT        , LogoutProtocol.Convert},
+				//{DataType.ISCONNECT     , isConnectProtocol.Convert},
 				//{DataType.FAIL			, FailProtocol.Convert},
-				{DataType.REQUEST       , RequestProtocol.Convert},
-				{DataType.REQUEST_RECENT_ALL , RequestRecentAllProtocol.Convert},
-				{DataType.TOAST         , ToastProtocol.Convert},
-				{DataType.SIGNUP        , SignUpProtocol.Convert},
-				{DataType.DELETE_REQUEST       , DeleteRequestProtocol.Convert},
-				{DataType.INVITE		, InviteProtocol.Convert},
+				//{DataType.REQUEST       , RequestProtocol.Convert},
+				//{DataType.REQUEST_RECENT_ALL , RequestRecentAllProtocol.Convert},
+				//{DataType.TOAST         , ToastProtocol.Convert},
+				//{DataType.SIGNUP        , SignUpProtocol.Convert},
+				//{DataType.DELETE_REQUEST       , DeleteRequestProtocol.Convert},
+				//{DataType.INVITE		, InviteProtocol.Convert},
 
 				// 클래스 자료형
 				{DataType.USER          , UserProtocol.Convert},
 				{DataType.MESSAGE       , MessageProtocol.Convert },
-				{DataType.SERVER        , ServerProtocol.Convert},
-				{DataType.CHECKLIST     , CheckListProtocol.Convert},
-				{DataType.CHNNEL        , ChannelProtocol.Convert},
-				{DataType.CALENDER      , CalenderProtocol.Convert},
-				{DataType.FRIEND        , FriendProtocol.Convert},
-				{DataType.LOGINUSER     , LoginUserProtocol.Convert}
-				*/
+				//{DataType.SERVER        , ServerProtocol.Convert},
+				//{DataType.CHECKLIST     , CheckListProtocol.Convert},
+				//{DataType.CHNNEL        , ChannelProtocol.Convert},
+				//{DataType.CALENDER      , CalenderProtocol.Convert},
+				//{DataType.FRIEND        , FriendProtocol.Convert},
+				//{DataType.LOGINUSER     , LoginUserProtocol.Convert}
+				
 		};
 		static public RcdResult Convert(byte[] target)
 		{
