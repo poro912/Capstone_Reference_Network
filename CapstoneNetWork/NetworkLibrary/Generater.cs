@@ -97,7 +97,7 @@ namespace Protocol
 			Generate(target, ref destination);
 			return destination;
 		}
-		/*
+		
 		// 제어 데이터형
 		// Login
 		static public void Generate(LoginProtocol.LOGIN target, ref ByteList destination)
@@ -124,7 +124,7 @@ namespace Protocol
 			Generate(target, ref destination);
 			return destination;
 		}
-
+		/*
 		// IsConnect
 		static public void Generate(isConnectProtocol.ISCONNECT target, ref ByteList destination)
 		{

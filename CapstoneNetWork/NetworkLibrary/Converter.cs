@@ -25,8 +25,8 @@ namespace Protocol
 				{DataType.DATETIME      , ConvertDateTime },
 				
 				// 제어 타입
-				//{DataType.LOGIN         , LoginProtocol.Convert},
-				//{DataType.LOGOUT        , LogoutProtocol.Convert},
+				{DataType.LOGIN         , LoginProtocol.Convert},
+				{DataType.LOGOUT        , LogoutProtocol.Convert},
 				//{DataType.ISCONNECT     , isConnectProtocol.Convert},
 				//{DataType.FAIL			, FailProtocol.Convert},
 				//{DataType.REQUEST       , RequestProtocol.Convert},
