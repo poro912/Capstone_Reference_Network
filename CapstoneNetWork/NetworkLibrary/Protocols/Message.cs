@@ -6,47 +6,57 @@
 		public class MESSAGE
 		{
 			public int studentID;
-			public int targetSeq;
+			public int targetID;
 			public string content;
+			private int seq;
 
 			public MESSAGE()
 			{
 				studentID = 0;
-				targetSeq = 0;
+				targetID = 0;
 				content = "";
+				seq = 0;
 			}
 			public MESSAGE(
 				int studentID = 0,
-				int targetSeq = 0,
-				string content = ""
+				int targetID = 0,
+				string content = "",
+				int seq = 0
 				)
 			{
 				this.studentID = studentID;
-				this.targetSeq = targetSeq;
+				this.targetID = targetID;
 				this.content = content;
+				this.seq = seq;
 			}
 
 			public void Set(
 				int studentID,
-				int targetSeq,
-				string content
+				int targetID,
+				string content,
+				int seq = 0
 				)
 			{
 				this.studentID = studentID;
-				this.targetSeq = targetSeq;
+				this.targetID = targetID;
 				this.content = content;
+				this.seq = seq;
 			}
 
 			// 데이터를 각 변수에 저장
 			public void Get(
 				out int studentID,
-				out int targetSeq,
+				out int targetID,
 				out string content
 				)
 			{
 				studentID = this.studentID;
-				targetSeq = this.targetSeq;
+				targetID = this.targetID;
 				content = this.content;
+			}
+			public bool check(int studentID,int seq)
+			{
+				return seq == this.seq && studentID == this.studentID;
 			}
 		}
 
@@ -58,7 +68,7 @@
 		{
 			destination.Add(DataType.MESSAGE);
 			Generater.Generate(target.studentID, ref destination);
-			Generater.Generate(target.targetSeq, ref destination);
+			Generater.Generate(target.targetID, ref destination);
 			Generater.Generate(target.content, ref destination);
 		}
 
@@ -74,7 +84,7 @@
 
 			temp = Converter.Convert(target);
 			if (temp.Value != null)
-				result.targetSeq = (int)temp.Value;
+				result.targetID = (int)temp.Value;
 
 			temp = Converter.Convert(target);
 			if (temp.Value != null)
