@@ -67,6 +67,8 @@ namespace Protocol
         public const byte SIGNUP = CONTROLLBASE + 10;
 		// 삭제요청
 		public const byte DELETE_REQUEST = CONTROLLBASE + 11;
+		// 게임 시작
+		public const byte GAME_START = CONTROLLBASE + 12;
 
 		// 클래스 타입
 		public const byte CLASSBASE = 0b_0010_0000; //32

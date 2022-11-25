@@ -35,6 +35,7 @@ namespace Protocol
 				//{DataType.SIGNUP        , SignUpProtocol.Convert},
 				//{DataType.DELETE_REQUEST       , DeleteRequestProtocol.Convert},
 				//{DataType.INVITE		, InviteProtocol.Convert},
+				{DataType.GAME_START        , GameStartProtocol.Convert},
 
 				// 클래스 자료형
 				{DataType.USER          , UserProtocol.Convert},

@@ -4,24 +4,24 @@
 	{
 		public class USER
 		{
-			public int seqNo;
 			public int studentID;
 			public string name;
 			public string nickname;
+			public int seqNo;
 
 			public USER()
 			{
-				seqNo = 0;
 				studentID = 0;
 				name = "";
 				nickname = "";
+				seqNo = 0;
 			}
 
 			public USER(
-				int seqNo = 0,
 				int studentID = 0,
 				string name = "",
-				string nickname = ""
+				string nickname = "",
+				int seqNo = 0
 				)
 			{
 				this.seqNo = seqNo;
@@ -30,10 +30,11 @@
 				this.nickname = nickname;
 			}
 			public void Set(
-				int seqNo,
+				
 				int studentID,
 				string name,
-				string nickname
+				string nickname,
+				int seqNo = 0
 				)
 			{
 				this.seqNo = seqNo;
@@ -63,10 +64,10 @@
 			)
 		{
 			destination.Add(DataType.USER);
-			Generater.Generate(target.seqNo, ref destination);
 			Generater.Generate(target.studentID, ref destination);
 			Generater.Generate(target.name, ref destination);
 			Generater.Generate(target.nickname, ref destination);
+			Generater.Generate(target.seqNo, ref destination);
 			return;
 		}
 
@@ -78,10 +79,6 @@
 			// code 값 입력 받음
 			temp = Converter.Convert(target);
 			if (temp.Value != null)
-				result.seqNo = (int)temp.Value;
-
-			temp = Converter.Convert(target);
-			if (temp.Value != null)
 				result.studentID = (int)temp.Value;
 
 			temp = Converter.Convert(target);
@@ -91,6 +88,10 @@
 			temp = Converter.Convert(target);
 			if (temp.Value != null)
 				result.nickname = (string)temp.Value;
+
+			temp = Converter.Convert(target);
+			if (temp.Value != null)
+				result.seqNo = (int)temp.Value;
 
 			return new(DataType.USER, result);
 		}

@@ -250,6 +250,21 @@ namespace Protocol
 			return destination;
 		}
 		*/
+
+		// Game Start
+		static public void Generate(GameStartProtocol.GameStart target, ref ByteList destination)
+		{
+			GameStartProtocol.Generate(target, ref destination);
+			return;
+		}
+		static public ByteList Generate(GameStartProtocol.GameStart target)
+		{
+			ByteList destination = new();
+			Generate(target, ref destination);
+			return destination;
+		}
+
+
 		// 클래스 형
 		// User
 		static public void Generate(UserProtocol.USER target, ref ByteList destination)
