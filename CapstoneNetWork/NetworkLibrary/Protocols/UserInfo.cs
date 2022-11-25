@@ -4,53 +4,53 @@
 	{
 		public class USER
 		{
-			public int userCode;
-			public string id;
+			public int seqNo;
+			public int studentID;
 			public string name;
 			public string nickname;
 
 			public USER()
 			{
-				userCode = 0;
-				id = "";
+                seqNo = 0;
+                studentID = 0;
 				name = "";
 				nickname = "";
 			}
 
 			public USER(
-				int userCode = 0,
-				string id = "",
+				int seqNo = 0,
+				int studentID = 0,
 				string name = "",
 				string nickname = ""
 				)
 			{
-				this.userCode = userCode;
-				this.id = id;
+				this.seqNo = seqNo;
+				this.studentID = studentID;
 				this.name = name;
 				this.nickname = nickname;
 			}
 			public void Set(
-				int userCode,
-				string id,
+				int seqNo,
+				int studentID,
 				string name,
 				string nickname
 				)
 			{
-				this.userCode = userCode;
-				this.id = id;
+				this.seqNo = seqNo;
+				this.studentID = studentID;
 				this.name = name;
 				this.nickname = nickname;
 			}
 
 			public void Get(
-				out int userCode,
-				out string id,
+				out int seqNo,
+				out int studentID,
 				out string name,
 				out string nickname
 				)
 			{
-				userCode = this.userCode;
-				id = this.id;
+                seqNo = this.seqNo;
+                studentID = this.studentID;
 				name = this.name;
 				nickname = this.nickname;
 			}
@@ -63,8 +63,8 @@
 			)
 		{
 			destination.Add(DataType.USER);
-			Generater.Generate(target.userCode, ref destination);
-			Generater.Generate(target.id, ref destination);
+			Generater.Generate(target.seqNo, ref destination);
+			Generater.Generate(target.studentID, ref destination);
 			Generater.Generate(target.name, ref destination);
 			Generater.Generate(target.nickname, ref destination);
 			return;
@@ -78,11 +78,11 @@
 			// code 값 입력 받음
 			temp = Converter.Convert(target);
 			if (temp.Value != null)
-				result.userCode = (int)temp.Value;
+				result.seqNo = (int)temp.Value;
 
 			temp = Converter.Convert(target);
 			if (temp.Value != null)
-				result.id = (string)temp.Value;
+				result.studentID = (int)temp.Value;
 
 			temp = Converter.Convert(target);
 			if (temp.Value != null)
