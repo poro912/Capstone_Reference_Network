@@ -5,69 +5,70 @@ using System.Text;
 
 namespace Protocol
 {
-    public class LogoutProtocol
-    {
-        public class LOGOUT
-        {
-            // Data Declear
-            public int usercode;
-            public string id;
-            public LOGOUT()
-            {
-                id = "";
-            }
-            public LOGOUT(
-                int usercode = 0,
-                string id = ""
-                )
-            {
-                this.usercode = usercode;
-                this.id = id;
-            }
+	public class LogoutProtocol
+	{
+		public class LOGOUT
+		{
+			// Data Declear
+			public int seqNo;
+			public int studentID;
+			public LOGOUT()
+			{
+				seqNo = 0;
+				studentID = 0;
+			}
+			public LOGOUT(
+				int seqNo = 0,
+				int studentID = 0
+				)
+			{
+				this.seqNo = seqNo;
+				this.studentID = studentID;
+			}
 
-            public void Get(
-                out int usercode,
-                out string id
-            )
-            {
-                usercode = this.usercode;
-                id = this.id;
-            }
+			public void Get(
+				out int seqNo,
+				out int studentID
+			)
+			{
+				seqNo = this.seqNo;
+				studentID = this.studentID;
+			}
 
-            public void Set(
-                int usercode,
-                string id
-                )
-            {
-                this.usercode = usercode;
-                this.id = id;
-            }
-        }
+			public void Set(
+				int seqNo,
+				int studentID
+				)
+			{
+				this.seqNo = seqNo;
+				this.studentID = studentID;
+			}
+		}
 
-        static public void Generate(
-            LOGOUT target,
-            ref ByteList destination
-            )
-        {
-            destination.Add(DataType.LOGOUT);
-            Generater.Generate(target.usercode, ref destination);
-            Generater.Generate(target.id, ref destination);
-        }
-        // List<byte>를 클래스로 변환
-        static public RcdResult Convert(ByteList target)
-        {
-            RcdResult temp;
-            LOGOUT result = new();
+		static public void Generate(
+			LOGOUT target,
+			ref ByteList destination
+			)
+		{
+			destination.Add(DataType.LOGOUT);
+			Generater.Generate(target.seqNo, ref destination);
+			Generater.Generate(target.studentID, ref destination);
+		}
+		// List<byte>를 클래스로 변환
+		static public RcdResult Convert(ByteList target)
+		{
+			RcdResult temp;
+			LOGOUT result = new();
 
-            temp = Converter.Convert(target);
-            if (temp.Value != null)
-                result.usercode = (int)temp.Value;
+			temp = Converter.Convert(target);
+			if (temp.Value != null)
+				result.seqNo = (int)temp.Value;
 
-            temp = Converter.Convert(target);
-            if (temp.Value != null)
-                result.id = (string)temp.Value;
+			temp = Converter.Convert(target);
+			if (temp.Value != null)
+				result.studentID = (int)temp.Value;
 
-            return new(DataType.LOGOUT, result);
-        }
-    }
+			return new(DataType.LOGOUT, result);
+		}
+	}
 }
