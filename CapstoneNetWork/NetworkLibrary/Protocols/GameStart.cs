@@ -11,7 +11,7 @@ namespace Protocol
     {
         public class GameStart 
         {
-            public int meanless;
+            public int meanless = 0;
         }
 
 		static public void Generate(
