@@ -161,7 +161,11 @@ namespace Protocol
 
 			try
 			{
-				this.stream.Write(data, 0, data.Length);
+				// 현재 1024 를 넘기는 데이터는 받을 수 없는 형태로 작성되어있으므로
+				// 무조건 1024 바이트로만 데이터를 전소한다.
+				// 추후 1024 바이트를 넘기는 데이터를 받을 수 있게 되면 이곳을 변경해야 한다. 
+				//this.stream.Write(data, 0, data.Length);
+				this.stream.Write(data, 0, 1024);
 			}
 			catch (Exception e)
 			{
@@ -268,7 +272,6 @@ namespace Protocol
 				return;
 			}
 				
-
 			// 데이터를 받아오는 대로 queue에 저장
 			receive_queue.Enqueue(this.received_byte);
 
