@@ -261,9 +261,13 @@ namespace Protocol
 		// 데이터 삽입
 		private void SaveDataEnQueue(IAsyncResult ar)
 		{
+			// 새로운 배열로 교체
+			byte[] temp_byte = received_byte;
+			received_byte = new byte[1024];
+
 			Console.WriteLine("Communicater\t: 데이터 들어옴");
-			Console.WriteLine("Communicater\t: 데이터 길이 : " + received_byte.Length);
-			string receive_data = Encoding.Default.GetString(this.received_byte);
+			Console.WriteLine("Communicater\t: 데이터 길이 : " + temp_byte.Length);
+			string receive_data = Encoding.Default.GetString(temp_byte);
 			Console.WriteLine("Communicater\t: 내용 : " + receive_data + "|");
 
 			/*
@@ -272,16 +276,16 @@ namespace Protocol
 				StopReceive();
 				return;
 			}
+			*/
 			if (receive_data.Equals(""))
 			{
 				StopReceive();
 				return;
 			}
-			*/
-
+			
 			// 데이터를 받아오는 대로 queue에 저장
-			receive_queue.Enqueue(this.received_byte);
-			received_byte = new byte [1024]; 
+			receive_queue.Enqueue(temp_byte);
+			
 
 			// 처리 끝 다음 데이터를 받을 준비를 함
 			// 다음 데이터 받을 준비를 먼저 한 후 이벤트를 호출한다.
