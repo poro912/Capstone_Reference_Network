@@ -40,6 +40,9 @@ namespace Protocol
 		// 임시 변수
 		private byte[] received_byte;
 		private bool ReceiveRun = false;
+
+		public static readonly byte[] zeroByte = new byte [1024];
+
 		public bool receiveRun { get { return ReceiveRun; } }
 
 		// 이벤트 발생기
@@ -150,6 +153,7 @@ namespace Protocol
 		// 하나의 바이트 배열을 전송 할 때 사용
 		public void SendProcess(Byte[] data)
 		{
+			
 			// 들어온 데이터가 없다면 종료
 			if (data.Length.Equals(0))
 				return;
@@ -164,8 +168,8 @@ namespace Protocol
 				// 현재 1024 를 넘기는 데이터는 받을 수 없는 형태로 작성되어있으므로
 				// 무조건 1024 바이트로만 데이터를 전소한다.
 				// 추후 1024 바이트를 넘기는 데이터를 받을 수 있게 되면 이곳을 변경해야 한다. 
-				//this.stream.Write(data, 0, data.Length);
-				this.stream.Write(data, 0, 1024);
+				this.stream.Write(data, 0, data.Length);
+				this.stream.Write(zeroByte, 0, 1024 - data.Length);
 			}
 			catch (Exception e)
 			{
