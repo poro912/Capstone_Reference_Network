@@ -8,7 +8,7 @@
 			public int studentID;
 			public int targetID;
 			public string content;
-			private int seq;
+			public int seq;
 
 			public MESSAGE()
 			{
@@ -70,6 +70,7 @@
 			Generater.Generate(target.studentID, ref destination);
 			Generater.Generate(target.targetID, ref destination);
 			Generater.Generate(target.content, ref destination);
+			Generater.Generate(target.seq, ref destination);
 		}
 
 		// List<byte>를 클래스로 변환
@@ -89,6 +90,10 @@
 			temp = Converter.Convert(target);
 			if (temp.Value != null)
 				result.content = (string)temp.Value;
+
+			temp = Converter.Convert(target);
+			if (temp.Value != null)
+				result.seq = (int)temp.Value;
 
 			return new(DataType.MESSAGE, result);
 		}
