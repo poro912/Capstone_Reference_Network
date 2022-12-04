@@ -17,36 +17,35 @@ namespace Protocol
 		// 데이터 컨버터
 		// byte_arr 형태의 데이터를 해석해주는 형태의 델리게이트를 배열로 저장
 		static public readonly Dictionary<byte, Convert?> convert_dict = new() {
-				// 기본 자료형
-				{DataType.STRING        , ConvertString },
-				{DataType.INT           , ConvertInt },
-				{DataType.BOOL          , ConvertBool },
-				{DataType.INTARRAY      , ConvertIntArray },
-				{DataType.DATETIME      , ConvertDateTime },
-				
-				// 제어 타입
-				{DataType.LOGIN         , LoginProtocol.Convert},
-				{DataType.LOGOUT        , LogoutProtocol.Convert},
-				//{DataType.ISCONNECT     , isConnectProtocol.Convert},
-				//{DataType.FAIL			, FailProtocol.Convert},
-				//{DataType.REQUEST       , RequestProtocol.Convert},
-				//{DataType.REQUEST_RECENT_ALL , RequestRecentAllProtocol.Convert},
-				//{DataType.TOAST         , ToastProtocol.Convert},
-				//{DataType.SIGNUP        , SignUpProtocol.Convert},
-				//{DataType.DELETE_REQUEST       , DeleteRequestProtocol.Convert},
-				//{DataType.INVITE		, InviteProtocol.Convert},
-				{DataType.GAME_START        , GameStartProtocol.Convert},
+			// 기본 자료형
+			{DataType.STRING        , ConvertString },
+			{DataType.INT           , ConvertInt },
+			{DataType.BOOL          , ConvertBool },
+			{DataType.INTARRAY      , ConvertIntArray },
+			{DataType.DATETIME      , ConvertDateTime },
+			
+			// 제어 타입
+			{DataType.LOGIN         , LoginProtocol.Convert},
+			{DataType.LOGOUT        , LogoutProtocol.Convert},
+			//{DataType.ISCONNECT     , isConnectProtocol.Convert},
+			//{DataType.FAIL			, FailProtocol.Convert},
+			//{DataType.REQUEST       , RequestProtocol.Convert},
+			//{DataType.REQUEST_RECENT_ALL , RequestRecentAllProtocol.Convert},
+			//{DataType.TOAST         , ToastProtocol.Convert},
+			//{DataType.SIGNUP        , SignUpProtocol.Convert},
+			//{DataType.DELETE_REQUEST       , DeleteRequestProtocol.Convert},
+			//{DataType.INVITE		, InviteProtocol.Convert},
+			{DataType.GAME_START        , GameStartProtocol.Convert},
 
-				// 클래스 자료형
-				{DataType.USER          , UserProtocol.Convert},
-				{DataType.MESSAGE       , MessageProtocol.Convert },
-				//{DataType.SERVER        , ServerProtocol.Convert},
-				//{DataType.CHECKLIST     , CheckListProtocol.Convert},
-				//{DataType.CHNNEL        , ChannelProtocol.Convert},
-				//{DataType.CALENDER      , CalenderProtocol.Convert},
-				//{DataType.FRIEND        , FriendProtocol.Convert},
-				//{DataType.LOGINUSER     , LoginUserProtocol.Convert}
-				
+			// 클래스 자료형
+			{DataType.USER          , UserProtocol.Convert},
+			{DataType.MESSAGE       , MessageProtocol.Convert },
+			//{DataType.SERVER        , ServerProtocol.Convert},
+			//{DataType.CHECKLIST     , CheckListProtocol.Convert},
+			//{DataType.CHNNEL        , ChannelProtocol.Convert},
+			//{DataType.CALENDER      , CalenderProtocol.Convert},
+			//{DataType.FRIEND        , FriendProtocol.Convert},
+			//{DataType.LOGINUSER     , LoginUserProtocol.Convert}
 		};
 		static public RcdResult Convert(byte[] target)
 		{

@@ -32,7 +32,10 @@ namespace ServerToClient
         // Accept 정보를 받기 위한 스레드
         readonly public Thread accept_thread;
         private bool run = false;
-
+        public bool Run
+        {
+            get;
+        }
         // 클라이언트의 정보를 저장하기 위한 멤버
         public List<Client> clients;
 
@@ -79,6 +82,9 @@ namespace ServerToClient
             Console.WriteLine("StoC\t: 스레드 종료 신호 발생");
             run = false;
             sep.Close();
+            if(null != accept_thread)
+                accept_thread.Join();
+            instance = null;
         }
 
         // 외부로부터 통신 요청이 있다면 통신 요청을 받아 클라이언트 스레드로 만들어줌
