@@ -33,7 +33,7 @@ namespace Protocol
 			if (temp.Value != null)
 				result.meanless = (int)temp.Value;
 
-			return new(DataType.MESSAGE, result);
+			return new(DataType.GAME_START, result);
 		}
 	}
 }
