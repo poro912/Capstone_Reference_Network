@@ -33,11 +33,13 @@ namespace Protocol
 			// 해석하기 위한 데이터 삽입
 			destination.Add(DataType.STRING);
 
-			// 문자열의 길이 삽입
-			destination.AddRange(BitConverter.GetBytes(target.Length));
+			byte[] temp = Encoding.UTF8.GetBytes(target);
+
+            // 문자열의 길이 삽입
+            destination.AddRange(BitConverter.GetBytes(temp.Length));
 
 			// 문자열의 내용 삽입
-			destination.AddRange(Encoding.UTF8.GetBytes(target));
+			destination.AddRange(temp);
 		}
 		static public ByteList Generate(string target)
 		{
