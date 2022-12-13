@@ -106,7 +106,7 @@ namespace Protocol
 				return ReturnNull();
 
 			// target을 array 로 바꿔 변환
-			result = Encoding.Default.GetString(target.ToArray(), 0, (int)n);
+			result = Encoding.UTF8.GetString(target.ToArray(), 0, (int)n);
 
 			// 읽은 만큼 데이터 삭제
 			target.RemoveRange(0, (int)n);
